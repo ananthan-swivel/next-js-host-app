@@ -55,6 +55,9 @@ export default function RootLayout({
                 <ListItem button component="a" href="/user">
                   <ListItemText primary="Users" />
                 </ListItem>
+                <ListItem button component="a" href="/logsync">
+                  <ListItemText primary="LogSync" />
+                </ListItem>
                 {/* Add more sidebar links here */}
               </List>
             </Box>
