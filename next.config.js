@@ -1,23 +1,23 @@
 /** @type {import('next').NextConfig} */
+const REMOTE_APP_URL = process.env.NEXT_PUBLIC_REMOTE_APP_URL;
+
 const nextConfig = {
-	env: {
-		NEXT_PUBLIC_REMOTE_APP_URL: process.env.NEXT_PUBLIC_REMOTE_APP_URL,
-		REMOTE_APP_SECRET: process.env.REMOTE_APP_SECRET,
-	},
-	assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX || '',
 	async rewrites() {
+		// Guard: skip rewrites if remote URL is not configured
+		if (!REMOTE_APP_URL) return [];
 		return [
-			// Proxy the LogSync CRA app — all routes and static assets under /logsync
+			// Proxy the LogSync CRA app — served at root of remote app
 			{
 				source: '/logsync',
-				destination: `${process.env.NEXT_PUBLIC_REMOTE_APP_URL}/logsync`,
+				destination: `${REMOTE_APP_URL}/`,
 			},
+			// Proxy CRA static assets (JS/CSS bundles)
 			{
-				source: '/logsync/:path*',
-				destination: `${process.env.NEXT_PUBLIC_REMOTE_APP_URL}/logsync/:path*`,
+				source: '/static/:path*',
+				destination: `${REMOTE_APP_URL}/static/:path*`,
 			},
 		];
 	},
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
