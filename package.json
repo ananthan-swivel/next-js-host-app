@@ -9,14 +9,30 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "25.5.0",
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
-    "eslint": "9.39.4",
-    "eslint-config-next": "16.2.0",
-    "next": "16.2.0",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
+    "@emotion/react": "^11.11.1",
+    "@emotion/server": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.18",
+    "@types/node": "^18.16.0",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "eslint": "^8.47.0",
+    "eslint-config-next": "^13.4.19",
+    "next": "^13.4.19",
+    "next-redux-wrapper": "^3.0.0",
+    "next-usequerystate": "^1.13.2",
+    "notistack": "^3.0.1",
+    "p-limit": "5.0.0",
+    "postcss-cssnext": "^3.1.0",
+    "prettier": "^3.1.0",
+    "prop-types": "^15.7.2",
+    "query-string": "^6.8.3",
+    "react": "18.2.0",
+    "react-actioncable-provider": "^2.0.0",
+    "react-actioncable-provider-next": "^2.0.7",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
     "typescript": "5.9.3"
   }
 }

@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { AppBar, Toolbar, Typography, Container, CssBaseline } from '@mui/material';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +17,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <CssBaseline />
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Next.js Host App
+            </Typography>
+            {/* Add more nav items here if needed */}
+          </Toolbar>
+        </AppBar>
+        <Container maxWidth="lg" sx={{ mt: 4 }}>
+          {children}
+        </Container>
+      </body>
     </html>
   )
 }
