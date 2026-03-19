@@ -1,23 +1,22 @@
 /** @type {import('next').NextConfig} */
-const REMOTE_APP_URL = process.env.NEXT_PUBLIC_REMOTE_APP_URL;
+
+// Remote CRA app URL — fallback hardcoded so Vercel always has a value
+const REMOTE_APP_URL =
+	process.env.NEXT_PUBLIC_REMOTE_APP_URL ||
+	'https://react-host-app-henna.vercel.app';
 
 const nextConfig = {
 	async rewrites() {
-		// Guard: skip rewrites if remote URL is not configured
-		if (!REMOTE_APP_URL) return { beforeFiles: [] };
 		return {
-			// beforeFiles: run BEFORE Next.js checks the filesystem/pages
+			// beforeFiles: runs BEFORE Next.js checks the filesystem/pages
 			// This ensures /logsync is always proxied to the remote CRA app
 			beforeFiles: [
+				// Proxy CRA app root (index.html) when visiting /logsync
 				{
 					source: '/logsync',
 					destination: `${REMOTE_APP_URL}/`,
 				},
-				{
-					source: '/logsync/:path*',
-					destination: `${REMOTE_APP_URL}/:path*`,
-				},
-				// Proxy CRA static assets (JS/CSS bundles)
+				// Proxy CRA static JS/CSS bundles requested by the browser
 				{
 					source: '/static/:path*',
 					destination: `${REMOTE_APP_URL}/static/:path*`,
