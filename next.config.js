@@ -7,21 +7,14 @@ const nextConfig = {
 	assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX || '',
 	async rewrites() {
 		return [
+			// Proxy the LogSync CRA app — all routes and static assets under /logsync
 			{
 				source: '/logsync',
-				destination: `${process.env.NEXT_PUBLIC_REMOTE_APP_URL}/`,
+				destination: `${process.env.NEXT_PUBLIC_REMOTE_APP_URL}/logsync`,
 			},
 			{
 				source: '/logsync/:path*',
 				destination: `${process.env.NEXT_PUBLIC_REMOTE_APP_URL}/logsync/:path*`,
-			},
-			{
-				source: '/remote/:path*',
-				destination: `${process.env.NEXT_PUBLIC_REMOTE_APP_URL}/:path*`,
-			},
-			{
-				source: '/remote-static/:path*',
-				destination: `${process.env.NEXT_PUBLIC_REMOTE_APP_URL}/remote-static/:path*`,
 			},
 		];
 	},
