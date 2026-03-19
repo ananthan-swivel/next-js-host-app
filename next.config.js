@@ -14,13 +14,13 @@ const nextConfig = {
 				// Proxy CRA app root (index.html) when visiting /logsync
 				{
 					source: '/logsync',
-					destination: `${REMOTE_APP_URL}/`,
+					destination: `${REMOTE_APP_URL}`,
 				},
 				// Proxy CRA static JS/CSS bundles requested by the browser
 				{
-					source: '/static/:path*',
-					destination: `${REMOTE_APP_URL}/static/:path*`,
-				},
+          source: '/logsync/:path*',
+          destination: `${REMOTE_APP_URL}/:path*`,
+        },
 			],
 		};
 	},
