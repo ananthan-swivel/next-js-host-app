@@ -8,6 +8,14 @@ const nextConfig = {
 	async rewrites() {
 		return [
 			{
+				source: '/logsync',
+				destination: `${process.env.NEXT_PUBLIC_REMOTE_APP_URL}/`,
+			},
+			{
+				source: '/logsync/:path*',
+				destination: `${process.env.NEXT_PUBLIC_REMOTE_APP_URL}/logsync/:path*`,
+			},
+			{
 				source: '/remote/:path*',
 				destination: `${process.env.NEXT_PUBLIC_REMOTE_APP_URL}/:path*`,
 			},
