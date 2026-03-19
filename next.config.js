@@ -3,7 +3,7 @@
 // Remote CRA app URL — fallback hardcoded so Vercel always has a value
 const REMOTE_APP_URL =
 	process.env.NEXT_PUBLIC_REMOTE_APP_URL ||
-	'https://react-host-app-henna.vercel.app';
+	'https://d1xospmumlyl1c.cloudfront.net';
 
 const nextConfig = {
 	async rewrites() {
