@@ -1,4 +1,5 @@
 "use client";
+import RootLayout from "@/components/layout";
 import { Card, CardContent, Typography, Grid } from "@mui/material";
 import { useEffect } from "react";
 
@@ -30,18 +31,19 @@ export default function UserPage() {
   }, []);
 
   return (
-    <Grid container spacing={2} sx={{ mt: 2 }}>
-      asddsa
-      {dummyUsers.map((user) => (
-        <Grid item xs={12} sm={6} md={4} key={user.id}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6">{user.name}</Typography>
-              <Typography color="text.secondary">{user.email}</Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-      ))}
-    </Grid>
+    <RootLayout>
+      <Grid container spacing={2} sx={{ mt: 2 }}>
+        {dummyUsers.map((user) => (
+          <Grid item xs={12} sm={6} md={4} key={user.id}>
+            <Card>
+              <CardContent>
+                <Typography variant="h6">{user.name}</Typography>
+                <Typography color="text.secondary">{user.email}</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </RootLayout>
   );
 }
