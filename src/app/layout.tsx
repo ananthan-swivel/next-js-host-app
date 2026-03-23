@@ -52,7 +52,7 @@ export default function RootLayout({
                 <ListItem button component="a" href="/">
                   <ListItemText primary="Home" />
                 </ListItem>
-                <ListItem button component="a" href="/user">
+                <ListItem button component="a" href="/users">
                   <ListItemText primary="Users" />
                 </ListItem>
                 <ListItem button component="a" href="/logsync">
