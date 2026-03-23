@@ -1,17 +1,26 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function RemoteComponent() {
-  const [Comp, setComp] = useState<any>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-     // @ts-ignore
-    import("https://d1xospmumlyl1c.cloudfront.net").then((mod) =>
-      setComp(() => mod.default),
-    );
+    const script = document.createElement("script");
+    script.src = "https://d1xospmumlyl1c.cloudfront.net"; // must be a JS file
+    script.async = true;
+
+    script.onload = () => {
+      if ((window as any).renderRemoteApp) {
+        (window as any).renderRemoteApp(containerRef.current);
+      }
+    };
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
 
-  if (!Comp) return <div>Loading...</div>;
-
-  return <Comp />;
+  return <div ref={containerRef} />;
 }
