@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import RootLayout from "../layout";
 import { useParams } from "next/navigation";
@@ -14,9 +13,10 @@ declare global {
   }
 }
 
-
 // Accept params from Next.js App Router
-export default function SyncEnginePage({ params }: { params?: { slug?: string[] } } = {}) {
+export default function SyncEnginePage({
+  params,
+}: { params?: { slug?: string[] } } = {}) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   // If params is undefined or slug is undefined, this is /sync-engine
