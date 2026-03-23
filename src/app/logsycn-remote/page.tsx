@@ -6,7 +6,8 @@ export default function RemoteComponent() {
 
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://d1xospmumlyl1c.cloudfront.net"; // must be a JS file
+    script.src =
+      "https://next-js-host-app.vercel.app/logsync/assets/index-D3fdANn-.js"; // must be a JS file
     script.async = true;
 
     script.onload = () => {
