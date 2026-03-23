@@ -58,6 +58,9 @@ export default function RootLayout({
                 <ListItem button component="a" href="/logsync">
                   <ListItemText primary="LogSync" />
                 </ListItem>
+                <ListItem button component="a" href="/logsync-remote">
+                  <ListItemText primary="LogSyncRemote" />
+                </ListItem>
                 {/* Add more sidebar links here */}
               </List>
             </Box>
