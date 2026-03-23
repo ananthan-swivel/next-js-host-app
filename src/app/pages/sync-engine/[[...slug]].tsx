@@ -1,6 +1,5 @@
+import RootLayout from "@/app/layout";
 import { useEffect, useRef } from "react";
-import RootLayout from "../../layout";
-import { useParams } from "next/navigation";
 
 declare global {
   interface Window {
